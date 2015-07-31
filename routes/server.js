@@ -1,3 +1,4 @@
+var express=require('express');
 var net= require('net');
 var HOST= '127.0.0.1';
 var port='3001';
@@ -6,7 +7,7 @@ var port='3001';
 var send = {sendEmail: function(){
 				console.log('Im in server.js');
 	//code to open a connection with our email engine
-	var client = new net.socket();
+	var client = new net.Socket();
 	client.connect(port,HOST,function(err){
 			console.log('connected to: '+ HOST +':'+port);
 			if(err) return next(err);
@@ -15,15 +16,16 @@ var send = {sendEmail: function(){
 	client.on('error',function(){
 		console.log('connection error');
 		client.destroy();
-		res.redirect('/');
+//		res.redirect('/');
 	});
 	
 	client.on('data',function(data){
 		console.log('received data!' );
 		client.destroy();
 		console.log('data: ' + data);
-		res.redirect('/');
+//		res.redirect('/');
 	});
+
 }};
 
 module.exports = send;

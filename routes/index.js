@@ -11,8 +11,7 @@ router.post('/api/save', function(req,res){
 		console.log(req.body); 
 		EMAIL.create({email:req.body.email});
 		server.sendEmail();	
-		res.send("was saved");		
-
+		res.redirect('/');
 });
 
 module.exports = router;
