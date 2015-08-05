@@ -9,7 +9,7 @@ var app = angular.module('email',[]);
 				}
 		$scope.sendEmail = function(){
 						console.log($scope.emailData);
-						$http.post('/api/save',{email:$scope.emailData.email})
+						$http.post('/api/save',{email:$scope.emailData.email,message:$scope.emailData.message})
 						.success(function(data)
 						{
 							console.log($scope.emailData.email + " was saved");
