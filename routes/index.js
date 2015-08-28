@@ -10,7 +10,7 @@ router.get('*', function(req, res, next) {
 router.post('/api/save', function(req,res){
 		console.log(req.body); 
 		EMAIL.create({email:req.body.email});
-		server.sendEmail({email:req.body.email,message:req.body.message});	
+		server.sendEmail({email:req.body.email,text:req.body.text,subject:req.body.subject,name:req.body.name});	
 		res.redirect('/');
 });
 
